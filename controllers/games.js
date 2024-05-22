@@ -36,9 +36,18 @@ const addGameController = async (req, res) => {
   });
 };
 
-const sendAllGames = async (req, res) => {
+const sendAllGames = (req, res) => {
   res.send(req.games);
 };
+
+const sendUpdatedGames = (req, res) => {
+  res.send({
+    games: req.games,
+    updated: req.updatedObject,
+  });
+};
+
+module.exports = { sendAllGames, sendUpdatedGames };
 
 const deleteGame = async (req, res) => {
   // Прочитаем запрашиваемый id игры из запроса
